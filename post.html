@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Postagem</title>
+</head>
+<body>
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Wiki-Blog</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ferramentas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item text-primary" href="addPost.html" class="nav-link">Adicionar Postagem</a></li>
+                    <li><a class="dropdown-item text-primary" href="editPost.html" class="nav-link" id="editPostLink">Editar Postagem</a></li>
+                    <li><a class="dropdown-item text-primary" href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#deleteModal">Excluir Postagem</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        </ul>
+    </header>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deseja excluir esta postagem?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja excluir esta postagem?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" id="btnDeletePost">Excluir</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">Postagem</div>
+            <div class="card-body">
+                <h3 class="card-title" id="title">Título da Postagem</h3>
+                <p class="card-text"><small class="text-muted">Por: <span id="author">Guilherme Feitosa</span></small></p>
+                <p class="card-text" id="content">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+            </div>
+            <div class="card-footer text-muted" id="modificationDate">2 dias atrás</div>
+        </div><br>
+
+        <div class="card w-100  mb-4">
+            <div class="card-header text-center">
+                Comentários
+                <button type="button" class="btn btn-outline-success btn-sm" style="float:right" id="addComment">Add</button>
+                <button type="button" class="btn btn-outline-danger btn-sm d-none" style="float:right" id="cancelComment">Cancel</button>
+            </div>
+            <ul class="list-group list-group-flush" id="commentList">
+                <li class="list-group-item d-none" id="liComment">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Comentário" id="inputComment">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-primary" id="buttonComment">Comentar</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="js/post.js" type="module"></script>
+</body>
+</html>

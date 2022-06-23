@@ -3,17 +3,14 @@ import ajax from './ajax.js'
 window.onload = getAllPosts
 
 function getAllPosts(){
-    ajax('/posts', getResult);
+    ajax('/posts', function (){
+        if(this.readyState==4&&this.status==200){
+            showPosts(JSON.parse(this.responseText))
+        }
+    });
 }
 
-function getResult(){
-    if(this.readyState==4&&this.status==200){
-        showPosts(this.responseText)
-    }
-}
-
-function showPosts(response){
-    const posts = JSON.parse(response)
+function showPosts(posts){
     posts.forEach(post => {
         addPostCard( createPostCard(post) )
     })
@@ -26,7 +23,7 @@ function createPostCard(post){
         <div class="card-body">
             <h5 class="card-title">${post.title}</h5>
             <p class="card-text">${post.content}</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
+            <a href="post.html?id=${post.id}" class="btn btn-primary">Ver mais</a>
         </div>
     </div><br>
     `
